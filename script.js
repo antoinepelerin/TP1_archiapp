@@ -15,7 +15,7 @@ function applique(f, tab) {
 // Fonction pour récupérer les messages depuis l'API
 // Fonction pour récupérer les messages depuis l'API
 function fetchMessages() {
-  fetch('https://48631982-5c35-4927-93d1-b3b5110c79ac-00-35rpmbc1e8m74.worf.replit.dev/msg/getAll')
+  fetch('https://tp2-archiapp.onrender.com/msg/getAll')
     .then(response => response.json())
     .then(messages => update(messages)) // Met à jour l'affichage
     .catch(err => console.error("Erreur lors de la récupération :", err));
@@ -67,7 +67,7 @@ function postMessage(pseudo, message) {
     date: new Date()
   };
 
-  fetch('https://48631982-5c35-4927-93d1-b3b5110c79ac-00-35rpmbc1e8m74.worf.replit.dev/msg/post', {  // Assure-toi que l'URL est correcte
+  fetch('https://tp2-archiapp.onrender.com/msg/post', {  // Assure-toi que l'URL est correcte
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ function postMessage(pseudo, message) {
 
 
 function deleteMessage(index) {
-  fetch(`https://48631982-5c35-4927-93d1-b3b5110c79ac-00-35rpmbc1e8m74.worf.replit.dev/msg/del/${index}`, { method: 'GET' })
+  fetch(`https://tp2-archiapp.onrender.com/msg/del/${index}`, { method: 'GET' })
       .then(() => {
           console.log("Message supprimé");
           fetchMessages(); // Mettre à jour la liste des messages après suppression
@@ -98,7 +98,7 @@ window.onload = fetchMessages;
 
 // Gère l'événement de mise à jour
 document.getElementById("updateButton").addEventListener("click", () => {
-  fetch('https://48631982-5c35-4927-93d1-b3b5110c79ac-00-35rpmbc1e8m74.worf.replit.dev/msg/getAll')
+  fetch('https://tp2-archiapp.onrender.com/msg/getAll')
     .then(response => response.json())
     .then(data => update(data))
     .catch(err => console.error("Erreur lors de la récupération des messages :", err));
